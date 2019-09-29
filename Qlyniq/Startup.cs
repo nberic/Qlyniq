@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+
+using Qlyniq.Models;
 
 namespace Qlyniq
 {
@@ -31,6 +34,8 @@ namespace Qlyniq
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<QlyniqDbContext>(options => 
+                options.UseMySQL(Configuration.GetConnectionString("MySqlConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
