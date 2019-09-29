@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Patients";
-    int counter = 1;
+    int counter = 0;
 }
 
 <h1> Patients </h1>
@@ -28,7 +28,7 @@
                 @Html.DisplayNameFor(model => model.Gender)
             </th>
             <th>
-                <a class="btn btn-success" asp-action="Create"><i class="far fa-plus-square"> Patient </i></a>
+                <a class="btn btn-success" asp-action="Create"><i class="far fa-plus-square"> New Patient </i></a>
             </th>
         </tr>
     </thead>
