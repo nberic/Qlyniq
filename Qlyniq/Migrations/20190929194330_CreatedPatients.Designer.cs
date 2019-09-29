@@ -9,7 +9,7 @@ using Qlyniq.Models;
 namespace Qlyniq.Migrations
 {
     [DbContext(typeof(QlyniqDbContext))]
-    [Migration("20190929143537_CreatedPatients")]
+    [Migration("20190929194330_CreatedPatients")]
     partial class CreatedPatients
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

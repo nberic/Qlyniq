@@ -14,14 +14,7 @@
             @Html.DisplayNameFor(model => model.SocialSecurityNumber):
         </dt>
         <dd class = "col-sm-10">
-            @if (Model.SocialSecurityNumber == null)
-            {
-                <i style="color: gray">Empty</i>
-            }
-            else
-            {
-                @Html.DisplayFor(model => model.SocialSecurityNumber)
-            }
+            @Html.DisplayFor(model => model.SocialSecurityNumber)
         </dd>
         <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.FirstName):
