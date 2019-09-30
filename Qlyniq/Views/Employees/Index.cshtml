@@ -66,7 +66,7 @@
                 @Html.DisplayFor(modelItem => item.BirthDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsMedicalWorker)
+                @(item.IsMedicalWorker == true ? "Yes" : "No")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MedicalTitle)
