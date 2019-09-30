@@ -14,7 +14,7 @@ namespace Qlyniq.Models.Data
         [Display(Name = "Social Security Number")]
         [StringLength(13, MinimumLength = 13)]
         [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "Empty")]
-        [RegularExpression(@"^[0-9]{13}$")]
+        [RegularExpression(@"^[0-9]{13}$", ErrorMessage = "Please input a sequence of 13 digits.")]
         public string SocialSecurityNumber { get; set; }
 
         [Display(Name = "First Name")]
@@ -29,7 +29,7 @@ namespace Qlyniq.Models.Data
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 
-        [RegularExpression(@"Male|Female", ErrorMessage = "Only valid values for Gender field are 'Male' and 'Female'")]
+        // [RegularExpression(@"Male|Female", ErrorMessage = "Only valid values for Gender field are 'Male' and 'Female'")]
         public Gender? Gender { get; set; }
     }
 }
