@@ -1,4 +1,4 @@
-@model Qlyniq.Models.Data.Patient
+@model Qlyniq.Models.Data.Employee
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,10 +12,17 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="SocialSecurityNumber" class="control-label"></label>
-                <input asp-for="SocialSecurityNumber" class="form-control" />
-                <span asp-validation-for="SocialSecurityNumber" class="text-danger"></span>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="OfficeId" class="control-label"></label>
+                    <input asp-for="OfficeId" class="form-control" />
+                    <span asp-validation-for="OfficeId" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="SocialSecurityNumber" class="control-label"></label>
+                    <input asp-for="SocialSecurityNumber" class="form-control" />
+                    <span asp-validation-for="SocialSecurityNumber" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -48,12 +55,25 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label asp-for="MedicalTitle" class="control-label"></label>
+                    <input asp-for="MedicalTitle" class="form-control" />
+                    <span asp-validation-for="MedicalTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label btn btn-block" style="padding-top: 35px !important">
+                        <input class="form-check-input" asp-for="IsMedicalWorker" />
+                        @Html.DisplayNameFor(model => model.IsMedicalWorker)
+                    </label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
                     <button type="submit" value="Save" class="btn btn-success">
                     <i class="fa fa-save"> Save changes </i>
                     </button>
                 </div>
                 <div class="col-md-6">
-                    <a class="btn btn-secondary" asp-action="Index"><i class="fa fa-table"> Back to Patients </i></a>
+                    <a class="btn btn-secondary" asp-action="Index"><i class="fa fa-table"> Back to Employees </i></a>
                 </div>
             </div>
         </form>
