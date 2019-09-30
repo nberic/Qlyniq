@@ -36,7 +36,7 @@ namespace Qlyniq
             });
 
             services.AddDbContext<QlyniqDbContext>(options => 
-                options.UseMySQL(Configuration.GetConnectionString("MySqlConnection")));
+                options.UseMySql(Configuration.GetConnectionString("MySqlConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
