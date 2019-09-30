@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Qlyniq.Migrations
 {
-    public partial class CreatedPatients : Migration
+    public partial class CreatedPatientsTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
