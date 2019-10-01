@@ -9,14 +9,29 @@ using Qlyniq.Models;
 namespace Qlyniq.Migrations
 {
     [DbContext(typeof(QlyniqDbContext))]
-    [Migration("20190930195019_CreatedEmployeesTable")]
-    partial class CreatedEmployeesTable
+    [Migration("20191001175758_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("Qlyniq.Models.Data.Dean", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("EmployeeId");
+
+                    b.Property<int>("OfficeId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Deans");
+                });
 
             modelBuilder.Entity("Qlyniq.Models.Data.Employee", b =>
                 {
@@ -46,6 +61,23 @@ namespace Qlyniq.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Qlyniq.Models.Data.Office", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("Budget");
+
+                    b.Property<int>("DeanId");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Offices");
                 });
 
             modelBuilder.Entity("Qlyniq.Models.Data.Patient", b =>

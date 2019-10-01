@@ -12,7 +12,9 @@ namespace Qlyniq.Models
         }
 
         public DbSet<Patient> Patients { get; set; }
-
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Office> Offices { get; set; }
+
+        public DbSet<Dean> Deans { get; set; }
     }
 }
