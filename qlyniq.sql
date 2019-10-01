@@ -1,4 +1,5 @@
 -- https://code.msdn.microsoft.com/How-to-using-Entity-1464feea
+-- dotnet ef dbcontext scaffold "Server=127.0.0.1; Port=3306; Database=Qlyniq; Uid=nberic; Pwd=nbericpass" Pomelo.EntityFrameworkCore.MySql -o Models --data-annotations
 
 CREATE DATABASE IF NOT EXISTS `Qlyniq`;
 USE `Qlyniq`;
