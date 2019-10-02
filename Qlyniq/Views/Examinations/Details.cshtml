@@ -1,0 +1,66 @@
+@model Qlyniq.Models.Examinations
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Examinations</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartingTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartingTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Therapy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsEmergency)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsEmergency)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Diagnosis.Code)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Doctor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Doctor.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.File)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.File.Note)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LabReport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LabReport.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Patient)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Patient.FirstName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
