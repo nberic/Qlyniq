@@ -55,6 +55,7 @@ namespace Qlyniq.Models
         [Column(TypeName = "tinyint(1)")]
         public bool? IsMedicalWorker { get; set; } = false;
 
+        [Display(Name = "Medical Title")]
         [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "No Medical Title")]
         [Column(TypeName = "varchar(50)")]
         public string MedicalTitle { get; set; } = null;

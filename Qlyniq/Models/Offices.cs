@@ -14,13 +14,19 @@ namespace Qlyniq.Models
             Employees = new HashSet<Employees>();
         }
 
+        [Key]
         public uint Id { get; set; }
+
         [Required]
         [Column(TypeName = "varchar(100)")]
         public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Dean")]
         public uint DeanId { get; set; }
+
         [Column(TypeName = "decimal(10,0)")]
-        public decimal Budget { get; set; }
+        public decimal Budget { get; set; } = 0.0M;
 
         [ForeignKey("DeanId")]
         [InverseProperty("Offices")]
