@@ -13,11 +13,22 @@ namespace Qlyniq.Models
             Examinations = new HashSet<Examinations>();
         }
 
+        [Key]
         public uint Id { get; set; }
+
+        [Display(Name = "Patient")]
+        [Required]
         public uint PatientId { get; set; }
+
+        [Display(Name = "Created by")]
+        [Required]
         public uint CreatorId { get; set; }
+
+
+        [Display(Name = "Creation Date")]
         [Column(TypeName = "datetime")]
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; set; } = DateTime.Now;
+
         [Required]
         [Column(TypeName = "varchar(1000)")]
         public string Note { get; set; }
