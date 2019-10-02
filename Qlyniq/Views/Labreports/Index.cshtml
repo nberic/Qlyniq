@@ -1,0 +1,83 @@
+@model IEnumerable<Qlyniq.Models.Labreports>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AcceptedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SampledTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glucose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Urea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Creatine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cholesterol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Helicobacter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipient)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcceptedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SampledTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Glucose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Urea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creatine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cholesterol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Helicobacter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recipient.FirstName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
