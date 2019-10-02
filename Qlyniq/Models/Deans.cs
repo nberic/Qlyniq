@@ -16,11 +16,9 @@ namespace Qlyniq.Models
         [Key]
         public uint Id { get; set; }
 
-        [Required]
         [Display(Name = "Office")]
         public uint OfficeId { get; set; }
 
-        [Required]
         [Display(Name = "Employee")]
         public uint EmployeeId { get; set; }
 

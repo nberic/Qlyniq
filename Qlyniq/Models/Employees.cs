@@ -20,7 +20,6 @@ namespace Qlyniq.Models
         [Key]
         public uint Id { get; set; }
 
-        [Required]
         [Display(Name = "Office")]
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a positive integer.")]
         public uint OfficeId { get; set; }

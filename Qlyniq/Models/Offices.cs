@@ -21,7 +21,6 @@ namespace Qlyniq.Models
         [Column(TypeName = "varchar(100)")]
         public string Name { get; set; }
 
-        [Required]
         [Display(Name = "Dean")]
         public uint DeanId { get; set; }
 
