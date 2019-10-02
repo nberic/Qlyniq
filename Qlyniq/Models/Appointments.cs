@@ -23,6 +23,7 @@ namespace Qlyniq.Models
 
         public uint? PatientId { get; set; }
 
+        [Display(Name = "Doctor")]
         public uint DoctorId { get; set; }
 
         [Required]
