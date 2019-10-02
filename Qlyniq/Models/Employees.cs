@@ -17,26 +17,47 @@ namespace Qlyniq.Models
             Labreports = new HashSet<Labreports>();
         }
 
+        [Key]
         public uint Id { get; set; }
-        public uint OfficeId { get; set; }
+
         [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter a positive integer.")]
+        public uint OfficeId { get; set; }
+
+        [Required]
+        [StringLength(13, MinimumLength = 13)]
+        [RegularExpression(@"^[0-9]{13}$", ErrorMessage = "Please input a sequence of 13 digits.")]
         [Column(TypeName = "varchar(13)")]
         public string SocialSecurityNumber { get; set; }
+
         [Required]
+        [Display(Name = "First Name")]
         [Column(TypeName = "varchar(255)")]
         public string FirstName { get; set; }
+
         [Required]
+        [Display(Name = "Last Name")]
         [Column(TypeName = "varchar(255)")]
         public string LastName { get; set; }
+
+        [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
         [Column(TypeName = "date")]
         public DateTime BirthDate { get; set; }
+
         [Required]
+        [RegularExpression(@"^Male$|^Female$", ErrorMessage = "Only valid values for the Gender field are 'Male' and 'Female'")]
         [Column(TypeName = "enum('Male','Female')")]
         public string Gender { get; set; }
+
+
+        [Display(Name = "Is Medical Worker")]
         [Column(TypeName = "tinyint(1)")]
-        public sbyte? IsMedicalWorker { get; set; }
+        public bool? IsMedicalWorker { get; set; } = false;
+
+        [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "No Medical Title")]
         [Column(TypeName = "varchar(50)")]
-        public string MedicalTitle { get; set; }
+        public string MedicalTitle { get; set; } = null;
 
         [ForeignKey("OfficeId")]
         [InverseProperty("Employees")]

@@ -22,7 +22,6 @@ namespace Qlyniq.Models
         [Required]
         [Display(Name = "Social Security Number")]
         [StringLength(13, MinimumLength = 13)]
-        [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "Empty")]
         [RegularExpression(@"^[0-9]{13}$", ErrorMessage = "Please input a sequence of 13 digits.")]
         [Column(TypeName = "varchar(13)")]
         public string SocialSecurityNumber { get; set; }
