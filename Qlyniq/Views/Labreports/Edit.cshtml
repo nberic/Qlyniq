@@ -1,0 +1,74 @@
+@model Qlyniq.Models.Labreports
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Labreports</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="RecipientId" class="control-label"></label>
+                <select asp-for="RecipientId" class="form-control" asp-items="ViewBag.RecipientId"></select>
+                <span asp-validation-for="RecipientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientId" class="control-label"></label>
+                <select asp-for="PatientId" class="form-control" asp-items="ViewBag.PatientId"></select>
+                <span asp-validation-for="PatientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedTime" class="control-label"></label>
+                <input asp-for="AcceptedTime" class="form-control" />
+                <span asp-validation-for="AcceptedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SampledTime" class="control-label"></label>
+                <input asp-for="SampledTime" class="form-control" />
+                <span asp-validation-for="SampledTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Glucose" class="control-label"></label>
+                <input asp-for="Glucose" class="form-control" />
+                <span asp-validation-for="Glucose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urea" class="control-label"></label>
+                <input asp-for="Urea" class="form-control" />
+                <span asp-validation-for="Urea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Creatine" class="control-label"></label>
+                <input asp-for="Creatine" class="form-control" />
+                <span asp-validation-for="Creatine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cholesterol" class="control-label"></label>
+                <input asp-for="Cholesterol" class="form-control" />
+                <span asp-validation-for="Cholesterol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helicobacter" class="control-label"></label>
+                <input asp-for="Helicobacter" class="form-control" />
+                <span asp-validation-for="Helicobacter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
