@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS `Employees` (
     `Gender` ENUM('Male', 'Female') NOT NULL,
     `IsMedicalWorker` BOOLEAN DEFAULT FALSE,
     `MedicalTitle` VARCHAR(50),
+    `IsDean` BOOLEAN NOT NULL DEFAULT FALSE,
+    `DeanOfficeId` INT UNSIGNED
     CHECK (`SocialSecurityNumber` REGEXP '^[0-9]{13}$')
 );
 
@@ -93,7 +95,9 @@ CREATE TABLE IF NOT EXISTS `LabReports` (
 
 ALTER TABLE `Employees`
 ADD CONSTRAINT FK_Employees_OfficeId
-	FOREIGN KEY (`OfficeId`) REFERENCES `Offices`(`Id`);
+	FOREIGN KEY (`OfficeId`) REFERENCES `Offices`(`Id`),
+ADD CONSTRAINT FK_Employees_DeanOfficeId
+    FOREIGN KEY (`DeanOfficeId`) REFERENCES `Offices`(`Id`);
 
 ALTER TABLE `Files`
 ADD CONSTRAINT FK_Files_PatientId
