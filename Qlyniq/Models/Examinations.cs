@@ -37,7 +37,7 @@ namespace Qlyniq.Models
         [Required]
         [Display(Name = "Is Emergency")]
         [Column(TypeName = "tinyint(1)")]
-        public bool IsEmergency { get; set; } = false;
+        public bool? IsEmergency { get; set; } = false;
 
         [Display(Name = "Lab Report")]
         public uint? LabReportId { get; set; }

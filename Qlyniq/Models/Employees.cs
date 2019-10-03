@@ -55,7 +55,7 @@ namespace Qlyniq.Models
         [Required]
         [Display(Name = "Is Medical Worker")]
         [Column(TypeName = "tinyint(1)")]
-        public bool IsMedicalWorker { get; set; } = false;
+        public bool? IsMedicalWorker { get; set; } = true;
 
         [Display(Name = "Medical Title")]
         [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "No Medical Title")]
@@ -65,11 +65,11 @@ namespace Qlyniq.Models
         [Required]
         [Display(Name = "Is a Dean")]
         [Column(TypeName = "tinyint(1)")]
-        public bool IsDean { get; set; } = false;
+        public bool? IsDean { get; set; } = false;
 
         [Display(Name = "Dean to Office")]
         public uint? DeanOfficeId { get; set; }
-        
+
 
         [ForeignKey("DeanOfficeId")]
         [InverseProperty("EmployeesDeanOffice")]

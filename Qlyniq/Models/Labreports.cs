@@ -48,7 +48,7 @@ namespace Qlyniq.Models
 
         [Required]
         [Column(TypeName = "tinyint(1)")]
-        public bool Helicobacter { get; set; } = false;
+        public bool? Helicobacter { get; set; } = false;
 
 
         [ForeignKey("PatientId")]
