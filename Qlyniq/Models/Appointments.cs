@@ -21,6 +21,7 @@ namespace Qlyniq.Models
         [Column(TypeName = "varchar(255)")]
         public string PatientLastName { get; set; }
         
+        [Display(Name = "Patient")]
         public uint? PatientId { get; set; }
 
         [Display(Name = "Appointed Doctor")]
@@ -30,7 +31,7 @@ namespace Qlyniq.Models
         [Display(Name = "Starting Time")]
         [Column(TypeName = "datetime")]
         public DateTime StartingTime { get; set; }
-        
+
 
         [ForeignKey("DoctorId")]
         [InverseProperty("Appointments")]
