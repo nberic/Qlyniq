@@ -30,7 +30,7 @@ namespace Qlyniq.Models
         public DateTime AcceptedTime { get; set; }
 
         [Required]
-        [Display(Name = "Time of Sampling Completion")]
+        [Display(Name = "Time of Completion")]
         [Column(TypeName = "datetime")]
         public DateTime SampledTime { get; set; } = DateTime.Now;
 
