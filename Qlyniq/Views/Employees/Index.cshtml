@@ -73,7 +73,15 @@
                 @Html.DisplayFor(modelItem => item.IsDean)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DeanOffice.Name)
+                @if(item.IsDean ?? false)
+                {
+                    @Html.DisplayFor(modelItem => item.DeanOffice.Name)    
+                }
+                else 
+                {
+                    <p>None</p>
+                }
+                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Office.Name)

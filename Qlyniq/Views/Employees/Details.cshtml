@@ -62,7 +62,14 @@
             @Html.DisplayNameFor(model => model.DeanOffice)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DeanOffice.Name)
+            @if(Model.IsDean ?? false)
+            {
+                @Html.DisplayFor(model => model.DeanOffice.Name)
+            }
+            else 
+            {
+                <p>None</p>
+            }
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Office)
