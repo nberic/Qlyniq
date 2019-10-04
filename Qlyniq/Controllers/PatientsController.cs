@@ -139,6 +139,18 @@ namespace Qlyniq.Controllers
         public async Task<IActionResult> DeleteConfirmed(uint id)
         {
             var patients = await _context.Patients.FindAsync(id);
+
+            bool isInAppointments = await _context.Appointments.Where(a => a.PatientId == id).AnyAsync();
+            bool isInExaminations = await _context.Examinations.Where(e => e.PatientId == id).AnyAsync();
+            bool isInFiles = await _context.Files.Where(f => f.PatientId == id).AnyAsync();
+            bool isInLabReports = await _context.Labreports.Where(lr => lr.PatientId == id).AnyAsync();
+
+            if (isInAppointments || isInExaminations || isInFiles || isInLabReports)
+            {
+                ViewData["DeletionError"] = $"The patient cannot be deleted because it is referenced elsewhere in the database!";
+                return View(patients);
+            }
+            
             _context.Patients.Remove(patients);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
