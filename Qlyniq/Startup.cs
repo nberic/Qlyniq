@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Qlyniq.Models;
+using System.Globalization;
 
 namespace Qlyniq
 {
@@ -36,12 +37,19 @@ namespace Qlyniq
             services.AddDbContext<QlyniqContext>(options => 
                 options.UseMySql(Configuration.GetConnectionString("MySqlConnection")));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            var cultureInfo = new CultureInfo("en-US");
+            cultureInfo.NumberFormat.NumberGroupSeparator = ",";
+
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
