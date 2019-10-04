@@ -139,6 +139,13 @@ namespace Qlyniq.Controllers
         public async Task<IActionResult> DeleteConfirmed(uint id)
         {
             var offices = await _context.Offices.FindAsync(id);
+            bool isInEmployees = await _context.Employees.Where(e => e.OfficeId == id).AnyAsync();
+            if (isInEmployees)
+            {
+                ViewData["DeletionError"] = $"The office cannot be deleted because it is referenced elsewhere in the database!";
+                return View(offices);
+            }
+
             _context.Offices.Remove(offices);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

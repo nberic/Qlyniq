@@ -47,6 +47,7 @@ namespace Qlyniq.Models
         public float Cholesterol { get; set; }
 
         [Required]
+        [RegularExpression(@"^True$|^False$", ErrorMessage = "Only accepted values for the Helicobacter field are 'True' and 'False'")]
         [Column(TypeName = "tinyint(1)")]
         public bool? Helicobacter { get; set; } = false;
 
