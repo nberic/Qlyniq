@@ -1,0 +1,42 @@
+@model IEnumerable<Qlyniq.Models.Diagnosis>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Diagnosis</h3>
+<hr/>
+
+<table class="table table-striped table-bordered text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalTerm)
+            </th>
+            <th>
+                <a class="btn btn-success" asp-action="Create"><i class="far fa-plus-square"> New Diagnosis </i></a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalTerm)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-marker edit"></i></a> | 
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search details"></i></a> | 
+                <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1 delete">
+                    <i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

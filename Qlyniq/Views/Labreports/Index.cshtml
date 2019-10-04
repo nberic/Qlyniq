@@ -1,0 +1,84 @@
+@model IEnumerable<Qlyniq.Models.Labreports>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Lab Reports</h3>
+<hr/>
+
+<table class="table table-striped table-bordered text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AcceptedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SampledTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glucose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Urea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Creatine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cholesterol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Helicobacter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipient)
+            </th>
+            <th>
+                <a class="btn btn-success" asp-action="Create"><i class="far fa-plus-square"> New Report </i></a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcceptedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SampledTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Glucose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Urea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creatine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cholesterol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Helicobacter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recipient.FirstName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-marker edit"></i></a> | 
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search details"></i></a> | 
+                <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1 delete">
+                    <i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
