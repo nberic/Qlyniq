@@ -152,6 +152,14 @@ namespace Qlyniq.Controllers
         public async Task<IActionResult> DeleteConfirmed(uint id)
         {
             var files = await _context.Files.FindAsync(id);
+
+            bool isInExaminations = await _context.Examinations.Where(e => e.FileId == id).AnyAsync();
+            if (isInExaminations)
+            {
+                ViewData["DeletionError"] = $"The file cannot be deleted because it is referenced elsewhere in the database!";
+                return View(files);
+            }
+
             _context.Files.Remove(files);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

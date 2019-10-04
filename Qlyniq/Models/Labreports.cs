@@ -30,7 +30,7 @@ namespace Qlyniq.Models
         public DateTime AcceptedTime { get; set; }
 
         [Required]
-        [Display(Name = "Time of Sampling Completion")]
+        [Display(Name = "Time of Completion")]
         [Column(TypeName = "datetime")]
         public DateTime SampledTime { get; set; } = DateTime.Now;
 
@@ -47,6 +47,7 @@ namespace Qlyniq.Models
         public float Cholesterol { get; set; }
 
         [Required]
+        [RegularExpression(@"^True$|^False$", ErrorMessage = "Only accepted values for the Helicobacter field are 'True' and 'False'")]
         [Column(TypeName = "tinyint(1)")]
         public bool? Helicobacter { get; set; } = false;
 

@@ -35,6 +35,7 @@ namespace Qlyniq.Models
         public string Therapy { get; set; }
 
         [Required]
+        [RegularExpression(@"^True$|^False$", ErrorMessage = "Only accepted values for the Is Emergency field are 'True' and 'False'")]
         [Display(Name = "Is Emergency")]
         [Column(TypeName = "tinyint(1)")]
         public bool? IsEmergency { get; set; } = false;

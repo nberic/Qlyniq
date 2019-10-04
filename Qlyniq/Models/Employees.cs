@@ -53,6 +53,7 @@ namespace Qlyniq.Models
         public string Gender { get; set; }
 
         [Required]
+        [RegularExpression(@"^True$|^False$", ErrorMessage = "Only valid values for the Is Medical Worker field are 'True' and 'False'")]
         [Display(Name = "Is Medical Worker")]
         [Column(TypeName = "tinyint(1)")]
         public bool? IsMedicalWorker { get; set; } = true;
@@ -61,8 +62,9 @@ namespace Qlyniq.Models
         [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "No Medical Title")]
         [Column(TypeName = "varchar(50)")]
         public string MedicalTitle { get; set; } = null;
-
+    
         [Required]
+        [RegularExpression(@"^True$|^False$", ErrorMessage = "Only valid values for the Is Dean field are 'True' and 'False'")]
         [Display(Name = "Is a Dean")]
         [Column(TypeName = "tinyint(1)")]
         public bool? IsDean { get; set; } = false;

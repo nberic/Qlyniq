@@ -26,6 +26,11 @@
                 <span asp-validation-for="StartingTime" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="IsEmergency" class="control-label"></label>
+                <input asp-for="IsEmergency" class="form-control" />
+                <span asp-validation-for="IsEmergency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="FileId" class="control-label"></label>
                 <select asp-for="FileId" class ="form-control" asp-items="ViewBag.FileId"></select>
             </div>
@@ -36,6 +41,11 @@
             <div class="form-group">
                 <label asp-for="LabReportId" class="control-label"></label>
                 <select asp-for="LabReportId" class ="form-control" asp-items="ViewBag.LabReportId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Therapy" class="control-label"></label>
+                <input asp-for="Therapy" class="form-control" />
+                <span asp-validation-for="Therapy" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
