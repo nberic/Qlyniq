@@ -9,7 +9,7 @@ using Qlyniq.Models;
 namespace Qlyniq.Migrations
 {
     [DbContext(typeof(QlyniqContext))]
-    [Migration("20191003182105_InitialMigration")]
+    [Migration("20191004103121_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
