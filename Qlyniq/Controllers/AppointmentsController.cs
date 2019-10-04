@@ -48,8 +48,8 @@ namespace Qlyniq.Controllers
         // GET: Appointments/Create
         public IActionResult Create()
         {
-            ViewData["DoctorId"] = new SelectList(_context.Employees, "Id", "FirstName");
-            ViewData["PatientId"] = new SelectList(_context.Patients, "Id", "FirstName");
+            ViewData["DoctorId"] = new SelectList(_context.Employees, "Id", "Name");
+            ViewData["PatientId"] = new SelectList(_context.Patients, "Id", "Name");
             return View();
         }
 
@@ -66,8 +66,9 @@ namespace Qlyniq.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DoctorId"] = new SelectList(_context.Employees, "Id", "FirstName", appointments.DoctorId);
-            ViewData["PatientId"] = new SelectList(_context.Patients, "Id", "FirstName", appointments.PatientId);
+
+            ViewData["DoctorId"] = new SelectList(_context.Employees, "Id", "Name", appointments.DoctorId);
+            ViewData["PatientId"] = new SelectList(_context.Patients, "Id", "Name", appointments.PatientId);
             return View(appointments);
         }
 
@@ -84,8 +85,14 @@ namespace Qlyniq.Controllers
             {
                 return NotFound();
             }
-            ViewData["DoctorId"] = new SelectList(_context.Employees, "Id", "FirstName", appointments.DoctorId);
-            ViewData["PatientId"] = new SelectList(_context.Patients, "Id", "FirstName", appointments.PatientId);
+
+            if (appointments.PatientId != null)
+            {
+                appointments.PatientFirstName = _context.Patients.Where(p => p.Id == appointments.PatientId).FirstOrDefault().FirstName;
+                appointments.PatientLastName = _context.Patients.Where(p => p.Id == appointments.PatientId).FirstOrDefault().LastName;
+            }
+            ViewData["DoctorId"] = new SelectList(_context.Employees, "Id", "Name", appointments.DoctorId);
+            ViewData["PatientId"] = new SelectList(_context.Patients, "Id", "Name", appointments.PatientId);
             return View(appointments);
         }
 
@@ -103,6 +110,11 @@ namespace Qlyniq.Controllers
 
             if (ModelState.IsValid)
             {
+                if (appointments.PatientId != null)
+                {
+                    appointments.PatientFirstName = _context.Patients.Where(p => p.Id == appointments.PatientId).FirstOrDefault().FirstName;
+                    appointments.PatientLastName = _context.Patients.Where(p => p.Id == appointments.PatientId).FirstOrDefault().LastName;
+                }
                 try
                 {
                     _context.Update(appointments);

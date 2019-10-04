@@ -34,19 +34,40 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PatientFirstName)
+                @if(item?.Patient is null)
+                {
+                    @Html.DisplayFor(modelItem => item.PatientFirstName)
+                }
+                else
+                {
+                    @item.Patient.FirstName
+                }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PatientLastName)
+                @if(item?.Patient is null)
+                {
+                    @Html.DisplayFor(modelItem => item.PatientLastName)
+                }
+                else
+                {
+                    @item.Patient.LastName
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartingTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Doctor.FirstName)
+                @Html.DisplayFor(modelItem => item.Doctor.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Patient.FirstName)
+                @if(item.Patient is null)
+                {
+                    <p>None</p>
+                }
+                else 
+                {
+                    @Html.DisplayFor(modelItem => item.Patient.Name)
+                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
