@@ -4,6 +4,11 @@ The app supports CRUD actions on records of patient and employee data, patient f
 The data is being stored by a MySQL database, 
 while the querying of the data is being performed by Entity Framework Core.
 
+## Prerequisites:
+The SQL script that was used to generate the database and reverse engineer it into models 
+contains template instructions for scaffolding dbcontext and aspnet-codegenerator.
+Also, don't forget to install dotnet ef tool globally as well as dotnet aspnet-codegenerator tool.
+
 ## Installation
 Clone the repository on your local computer to a preferred location and navigate to the location.
 If one desires, they may checkout a branch they wish, for specific changes, features or improvements.
